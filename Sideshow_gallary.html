@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slideshow Gallary</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            margin: auto;
+        }
+
+        .mySlides{
+            display: none;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+        
+        .prev,
+        .next {
+            position: absolute;
+            top: 40%;
+            margin-top: -50px;
+            font-size: 20px;
+            border-radius: 0px 3px 3px 0px;
+            width: auto;
+            padding: 16px;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .next{
+            right: 0;
+            border-radius: 3px 0px 0px 3px;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .numbertext{
+            color: #f2f2f2;
+            font-size: 12px;
+            position: absolute;
+            padding: 8px 12px;
+            top: 0;
+        }
+
+        .caption-container{
+            text-align: center;
+            background-color: #222;
+            padding: 2px 16px;
+            color: white;
+        }
+
+        .row:after{
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column{
+            float: left;
+            width: 16.66%;
+        }
+
+        .demo{
+            opacity: 0.6;
+        }
+
+        .active,
+        .demo:hover{
+            opacity: 1;
+        }
+
+        img{
+            vertical-align: middle;
+            height: 500px;
+        }
+
+        .demo{
+            /* height: 230px; */
+            aspect-ratio: 9/8;
+        }
+
+        #caption{
+            margin: 16px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mySlides">
+            <div class="numbertext">1 / 6</div>
+            <img src="https://wallup.net/wp-content/uploads/2014/10/nature/Beautiful_Forest_Green_Lake_Landscape.jpg" alt="" style="width: 100%;">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">2 / 6</div>
+            <img src="https://en.idei.club/uploads/posts/2023-06/1687290111_en-idei-club-p-fiji-poseidon-resort-dizain-pinterest-6.jpg" alt="" style="width: 100%;">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">3 / 6</div>
+            <img src="https://i.pinimg.com/736x/49/e6/de/49e6de990b6b33f23f02bfdc834c1434.jpg" alt="" style="width: 100%;">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">4 / 6</div>
+            <img src="https://wallpapercave.com/wp/wp6121531.jpg" alt="" style="width: 100%;">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">5 / 6</div>
+            <img src="https://img.freepik.com/premium-photo/anticipating-new-vr-headsets-dynamic-metaverse-endless-possibilities_1003030-18338.jpg" alt="" style="width: 100%;">
+        </div>
+        <div class="mySlides">
+            <div class="numbertext">6 / 6</div>
+            <img src="https://st2.depositphotos.com/2294011/11774/i/450/depositphotos_117746422-stock-photo-music-musical-instruments.jpg" alt="" style="width: 100%;">
+        </div>
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+    <div class="caption-container">
+        <p id="caption"></p>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <img src="https://wallup.net/wp-content/uploads/2014/10/nature/Beautiful_Forest_Green_Lake_Landscape.jpg" class="demo cursor" onclick="currentSlide(1)" alt="Alternate text" style="width: 100%;">
+        </div>
+        <div class="column">
+            <img src="https://en.idei.club/uploads/posts/2023-06/1687290111_en-idei-club-p-fiji-poseidon-resort-dizain-pinterest-6.jpg" class="demo cursor" onclick="currentSlide(2)" alt="Alternate text" style="width: 100%;">
+        </div>
+        <div class="column">
+            <img src="https://i.pinimg.com/736x/49/e6/de/49e6de990b6b33f23f02bfdc834c1434.jpg" class="demo cursor" onclick="currentSlide(3)" alt="Alternate text" style="width: 100%;">
+        </div>
+        <div class="column">
+            <img src="https://wallpapercave.com/wp/wp6121531.jpg" class="demo cursor" onclick="currentSlide(4)" alt="Alternate text" style="width: 100%;">
+        </div>
+        <div class="column">
+            <img src="https://img.freepik.com/premium-photo/anticipating-new-vr-headsets-dynamic-metaverse-endless-possibilities_1003030-18338.jpg" class="demo cursor" onclick="currentSlide(5)" alt="Alternate text" style="width: 100%;">
+        </div>
+        <div class="column">
+           <img src="https://st2.depositphotos.com/2294011/11774/i/450/depositphotos_117746422-stock-photo-music-musical-instruments.jpg" class="demo cursor" onclick="currentSlide(6)" alt="Alternate text" style="width: 100%;">
+        </div>
+    </div>
+</body>
+<script>
+    let slideIndex = 1;
+    showSlides(1);
+
+    function plusSlides(n){
+        showSlides(slideIndex += 1)
+    }
+
+    function currentSlide(n){
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n){
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let caption = document.getElementById("caption")
+
+        if(n > slides.length) {slideIndex = 1};
+        if(slideIndex < 1) {slideIndex = slides.length};
+
+        for(i = 0; i < slides.length; i++){
+            slides[i].style.display = "none";
+        }
+
+        for(i = 0; i <dots.length; i++){
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+
+        slides[slideIndex-1].style.display = "block";
+        slides[slideIndex-1].style.boxSizing = "border-box";
+        dots[slideIndex - 1].className += " active";
+        caption.innerHTML = dots[slideIndex - 1].alt;
+    }
+</script>
+</html>
