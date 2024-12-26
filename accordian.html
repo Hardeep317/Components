@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accordian</title>
+    <style>
+        .accordian{
+            background-color: #eee;
+            color: #444;
+            padding: 18px;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-size: 15px;
+            transition: 0.4s;
+            outline: none;
+        }
+
+        .active, .accordian:hover{
+            background-color: #ccc;
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            overflow: hidden;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Accordian</h2>
+
+    <button class="accordian">Section 1</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae facere excepturi omnis error libero, nemo quae doloribus aspernatur mollitia, facilis provident aperiam asperiores quo sint ratione dicta molestiae aliquam. Voluptates, sequi nam nulla vel fugit pariatur sapiente excepturi cumque enim.</p>
+    </div>
+    <button class="accordian">Section 2</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae facere excepturi omnis error libero, nemo quae doloribus aspernatur mollitia, facilis provident aperiam asperiores quo sint ratione dicta molestiae aliquam. Voluptates, sequi nam nulla vel fugit pariatur sapiente excepturi cumque enim.</p>
+    </div>
+    <button class="accordian">Section 3</button>
+    <div class="panel">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae facere excepturi omnis error libero, nemo quae doloribus aspernatur mollitia, facilis provident aperiam asperiores quo sint ratione dicta molestiae aliquam. Voluptates, sequi nam nulla vel fugit pariatur sapiente excepturi cumque enim.</p>
+    </div>
+</body>
+<script>
+    let accordian = document.getElementsByClassName("accordian");
+    
+    let i;
+    for(i = 0; i < accordian.length; i++){
+        accordian[i].addEventListener("click", function (){
+            this.classList.toggle("active")
+
+            let panel = this.nextElementSibling;
+            if(panel.style.display == "block"){
+                panel.style.display = "none";
+            }else{
+                panel.style.display = "block";
+            }
+        })
+    }
+
+</script>
+</html>
