@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Icon Bar</title>
+    <style>
+        .icon-bar{
+            width: 110px;
+            background-color: #555;
+        }
+
+        .icon-bar a{
+            display: block;
+            text-align: center;
+            color: #fff;
+            text-decoration: none;
+            padding: 16px;
+            font-size: 26px;
+            transition: all 0.3s ease;
+            /* margin: 20px; */
+        }
+
+        .icon-bar a:hover{
+            background-color: #000;
+        }
+
+        .active{
+            background-color: green;
+        }
+
+        a:active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="icon-bar">
+        <a href="#" class="active">Home</a>
+        <a href="#">Home</a>
+        <a href="#">Home</a>
+        <a href="#">Home</a>
+        <a href="#">Home</a>
+    </div>
+</body>
+<script>
+    let icons = document.getElementsByClassName("icon-bar");
+
+    let length = icons[0].children.length;
+    icons[0].addEventListener("click",function (e){
+        for(let i = 0; i < length; i++){
+            e.children[i].classList.toggle("active")
+        }
+        e.target.classList += "active"
+    })
+    console.log(icons)
+</script>
+</html>
