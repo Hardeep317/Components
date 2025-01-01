@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tab headers</title>
+    <style>
+        .tablink {
+            background-color: #8a8989;
+            color: white;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 16px;
+            font-size: 17px;
+            width: 25%;
+        }
+
+        .tablink:hover{
+            background-color: #777;
+        }
+
+        .tabcontent{
+            color: white;
+            display: none;
+            padding: 50px;
+            text-align: center;
+        }
+
+        #London {background-color: red;}
+        #Paris {background-color: blue;}
+        #Delhi {background-color: green;}
+        #Oslo {background-color: orange;}
+    </style>
+</head>
+<body>
+    <div id="London" class="tabcontent">
+        <h1>London</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+    <div id="Delhi" class="tabcontent">
+        <h1>Delhi</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+    <div id="Paris" class="tabcontent">
+        <h1>Paris</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+    <div id="Oslo" class="tabcontent">
+        <h1>Oslo</h1>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+    </div>
+
+    <button class="tablink" onclick="opencity('London', this, 'red')" id="defaultOpen">London</button>
+    <button class="tablink" onclick="opencity('Delhi', this, 'green')">Delhi</button>
+    <button class="tablink" onclick="opencity('Paris', this, 'blue')">Paris</button>
+    <button class="tablink" onclick="opencity('Oslo', this, 'orange')">Oslo</button>
+</body>
+<script>
+    function opencity(city, evt, color){
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+
+        for(i = 0; i < tabcontent.length; i++){
+            tabcontent[i].style.display = 'none';
+        }
+
+        tablinks = document.getElementsByClassName("tablink");
+
+        for(i = 0; i < tablinks.length; i++){
+            tablinks[i].style.backgroundColor = "";
+        }
+
+        document.getElementById(city).style.display = "block";
+
+        evt.style.backgroundColor = color;
+    }
+
+    document.getElementById("defaultOpen").click();
+</script>
+</html>
