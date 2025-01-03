@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .mynavbar{
+            background-color: rgb(49, 42, 42);
+            padding: 20px;
+            color: whitesmoke;
+            position: fixed;
+            width: 100%;
+            top: -80px;
+            transition: 0.3s;
+            border-radius: 10px;
+        }
+
+        .mynavbar a{
+            text-decoration: none;
+            color: whitesmoke;
+            margin: 0 20px;
+            transition: 0.3s;
+        }
+
+        .mynavbar a:hover{
+            color: green;
+        }
+
+        .root{
+            height: 1000px;
+        }
+    </style>
+</head>
+<body>
+    <div class="mynavbar" id="navbar">
+        <a href="#">Home</a>
+        <a href="#">Contact</a>
+        <a href="#">Testimonial</a>
+        <a href="#">Footer</a>
+    </div>
+
+    <div class="root"></div>
+</body>
+<script>
+    window.onscroll = function(){hideNav()}
+
+    function hideNav(){
+        if(document.body.scrollTop > 20 || document.documentElement.scrollTop > 20){
+            document.getElementById("navbar").style.top = "0"
+        }else{
+            document.getElementById("navbar").style.top = "-80px"
+        }
+    }
+</script>
+</html>
